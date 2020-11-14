@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrain_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    // Name Input
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/text_title_create_assignment"
+        android:textAppearance="@style/TextAppearance.MyTheme.Headline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_name"
+        style="?attr/textInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_name_label" />
+
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_field_name_label" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    // Page start input
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_page_start"
+        style="?attr/textInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_input_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_name">>
+
+        <TextView
+            android:id="@+id/pagestart_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_field_pagestart_description" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_pagestart_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_pagestart_label"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    // Page end input
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_page_end"
+        style="?attr/textInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_input_page_start"
+        app:layout_constraintTop_toBottomOf="@id/text_input_page_start">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_pageend_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_pageend_label"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/pageend_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_field_pageend_description" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    // Start date input
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_date_start"
+        style="?attr/textInputStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/text_input_date_end"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/text_input_page_end"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_page_end">
+
+        <TextView
+            android:id="@+id/datestart_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_field_datestart_description" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_datestart_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_datestart_label"
+            android:inputType="date"
+            android:onClick="showDatePickerDialogStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    // End date input
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_date_end"
+        style="?attr/textInputStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/text_input_page_end"
+        app:layout_constraintStart_toEndOf="@+id/text_input_date_start"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_page_end">
+
+        <TextView
+            android:id="@+id/dateend_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_field_dateend_description" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_dateend_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_field_dateend_label"
+            android:inputType="date"
+            android:onClick="showDatePickerDialogEnd" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:onClick="addAssignment"
+        android:text="@string/text_button_add_assignment"
+        app:layout_constraintEnd_toEndOf="@+id/text_input_date_end"
+        app:layout_constraintStart_toStartOf="@+id/text_input_date_start"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_date_start" />
+</androidx.constraintlayout.widget.ConstraintLayout>
